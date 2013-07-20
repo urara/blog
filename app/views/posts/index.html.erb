@@ -1,31 +1,29 @@
-<table class="table table-hover table-striped">
-  <thead>
-    <tr>
-      <th>作成者</th>
-      <th>タイトル</th>
-      <th>要約</th>
-      <th>コメント数</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+<div class="container-fluid">
+  <table class="table table-hover table-striped table-boardered">
+    <thead>
+      <tr>
+        <th>タイトル</th>
+        <th>要約</th>
+        <th>コメント数</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
 
-  <tbody>
-    <% @posts.each do |post| %>
-    <tr>
-      <td><%= post.name %></td>
-      <td><%= post.title %></td>
-      <td><%= post.content %></td>
-      <td><%= post.comments.length %></td>
-      <td><%= link_to '続きを見る', post %></td>
-      <td><%= link_to '編集', edit_post_path(post) %></td>
-      <td><%= link_to '削除', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
+    <tbody>
+      <% @posts.each do |post| %>
+        <tr>
+          <td><%= post.title %></td>
+          <td><%= post.content %></td>
+          <td><%= post.comments.length %></td>
+          <td><%= link_to '続きを見る', post %></td>
+          <td><%= link_to '編集', edit_post_path(post) %></td>
+          <td><%= link_to '削除', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
-<br />
-
-<%= link_to '新規作成', new_post_path %>
+  <%= link_to '新規作成', new_post_path %>
+</div>
