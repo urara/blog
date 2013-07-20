@@ -13,7 +13,7 @@
 
 <p>
 <strong>本文:</strong><br />
-  <%= simple_format @post.content %>
+  <%= BlueCloth.new(trans_prettify(@post.content)).to_html.html_safe %>
 </p>
 
 <h3>コメント</h3>
@@ -34,5 +34,6 @@
   </div>
 <% end %>
 
+<script>prettyPrint();</script>
 <%= link_to 'Edit', edit_post_path(@post) %> |
 <%= link_to 'Back', posts_path %>
